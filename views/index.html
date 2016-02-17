@@ -23,9 +23,12 @@
        // alert("document ready");
 
 
+        var url = window.location.protocol+"//"+window.location.host
+
+
 
             $.ajax({
-                url: "http://localhost:8966/servertime",
+                url: url+"/servertime",
                 type: "post",
                 /*data:{ },
                 dataType:"json",*/
