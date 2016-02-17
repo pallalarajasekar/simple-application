@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="application/javascript" src="js/jquery.js"></script>
+    <script type="application/javascript" src="js/underscore.js"></script>
+    <script type="application/javascript" src="js/bootstrap.js"></script>
+</head>
+<script>
+    $(document).ready(function() {
+       // alert("document ready");
+
+
+
+            $.ajax({
+                url: "http://localhost:8966/servertime",
+                type: "post",
+                /*data:{ },
+                dataType:"json",*/
+                success: function (result) {
+                    console.log("Iam waiting");
+                    console.log("date time : " +result);
+                },
+                error: function(error){
+                    console.log('Error: ' + error);
+                    alert("ERROR:"+error);
+                }
+            });
+
+
+
+
+    })
+    /*$(function(){
+
+        $.ajax({
+            url: "datetimereturn",
+            type: "post",
+            success: function (result) {
+                alert("date time : " + result)
+            }
+        });
+
+    });*/
+</script>
+
+<body>
+<p>Hai pallali</p>
+</body>
+</html>
