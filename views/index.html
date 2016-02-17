@@ -6,6 +6,17 @@
     <script type="application/javascript" src="js/jquery.js"></script>
     <script type="application/javascript" src="js/underscore.js"></script>
     <script type="application/javascript" src="js/bootstrap.js"></script>
+
+    <style>
+        .centered {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            /* bring your own prefixes */
+            transform: translate(-50%, -50%);
+        }
+    </style>
+   <!-- <script type="application/javascript" src="css/color.css"></script>-->
 </head>
 <script>
     $(document).ready(function() {
@@ -21,8 +32,13 @@
                 success: function (result) {
                     console.log("Iam waiting");
                     console.log("date time : " +result);
+
+                    $("#center").append("<h2>" +"System Time:" +result +"</h2>");
+                    $("h2").css('color' ,'blue');
+
                 },
                 error: function(error){
+
                     console.log('Error: ' + error);
                     alert("ERROR:"+error);
                 }
@@ -46,6 +62,9 @@
 </script>
 
 <body>
-<p>Hai pallali</p>
+
+<div id="center" class="centered">
+
+</div>
 </body>
 </html>
