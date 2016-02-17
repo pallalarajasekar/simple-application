@@ -29,5 +29,17 @@ app.post('/servertime',function(req,res) {
 
 })
 
+setTimeout(function(){
+    setInterval(function(){
+        io.to('bcast').emit('serverTime', new Date())
+    }, 1000);
+}, 10000)
+
+
+
+
+
+
+
 
 

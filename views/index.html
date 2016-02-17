@@ -7,6 +7,8 @@
     <script type="application/javascript" src="js/underscore.js"></script>
     <script type="application/javascript" src="js/bootstrap.js"></script>
 
+
+
     <style>
         .centered {
             position: fixed;
@@ -14,6 +16,11 @@
             left: 50%;
             /* bring your own prefixes */
             transform: translate(-50%, -50%);
+        }
+        .time{
+            font-weight: bolder;
+            font-size: x-large;
+            color: #337ab7;
         }
     </style>
    <!-- <script type="application/javascript" src="css/color.css"></script>-->
@@ -36,8 +43,8 @@
                     console.log("Iam waiting");
                     console.log("date time : " +result);
 
-                    $("#center").append("<h2>" +"System Time:" +result +"</h2>");
-                    $("h2").css('color' ,'blue');
+//                    $("#center").append();
+//                    $("h2").css('color' ,'blue');
 
                 },
                 error: function(error){
@@ -68,6 +75,25 @@
 
 <div id="center" class="centered">
 
+
+<p style="font-weight: bolder"> System Time : <span class="time"></span> </p>
+
 </div>
+<script src="/socket.io/socket.io.js"></script>
+<script type="application/javascript">
+    io = io.connect()
+
+    // Emit ready event.
+    /*io.emit('ready')*/
+
+    // Listen for the talk event.
+
+    io.emit("join","bcast")
+
+    io.on('serverTime', function(time) {
+//        console.log(time)
+        $('.time').html(time);
+    })
+</script>
 </body>
 </html>
